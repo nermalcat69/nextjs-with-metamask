@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { useListen } from "../hooks/useListen";
-import { useMetamask } from "../hooks/useMetamask";
+import { useListen } from "../hooks/listen";
+import { useMetamask } from "../hooks/metamask";
 import { Loading } from "./Loading";
 
 export default function Wallet() {

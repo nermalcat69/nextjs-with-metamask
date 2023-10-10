@@ -1,4 +1,4 @@
-import { useMetamask } from "./useMetamask";
+import { useMetamask } from "./metamask";
 
 export const useListen = () => {
   const { dispatch } = useMetamask();

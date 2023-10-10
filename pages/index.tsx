@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import { useEffect } from "react";
 import Wallet from "../components/Wallet";
-import { useListen } from "../hooks/useListen";
-import { useMetamask } from "../hooks/useMetamask";
+import { useListen } from "../hooks/listen";
+import { useMetamask } from "../hooks/metamask";
 
 const Home: NextPage = () => {
   const { dispatch } = useMetamask();
