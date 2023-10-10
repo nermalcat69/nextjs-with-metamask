@@ -61,18 +61,18 @@ export default function Wallet() {
     <div className="grid justify-center place-items-center h-screen m-8 sm:m-0">
       <div className="mx-auto max-w-2xl py-16 px-4 place-self-center text-center bg-neutral-50  hover:shadow-lg duration-200 sm:py-20 sm:px-6 lg:px-8 rounded-xl">
         <h2 className="text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl">
-          <span className="block">Metamask API intro</span>
+          <span className="block">NextJs + Metamask</span>
         </h2>
         <p className="mt-4 text-lg leading-6 text-gray-600">
-          Follow along with the{" "}
+          checkout the{" "}
           <Link
             href="https://github.com/GuiBibeau/web3-unleashed-demo"
             rel= "noopener"
             target="_blank"
           >
-            <span className="underline cursor-pointer">Repo</span>
+            <span className="underline cursor-pointer">repository</span>
           </Link>{" "}
-          in order to learn how to use the Metamask API.
+          to implement metamask api and setup metamask with nextjs.
         </p>
 
         {wallet && balance && (
