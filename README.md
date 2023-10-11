@@ -1,1 +1,1 @@
-## NextJs With Metamask
+## NextJs Starter With 🦊 Metamask 
