@@ -158,13 +158,14 @@ export default function Wallet() {
               {showInstallMetamask && Notification (
           <Link
             href="https://metamask.io/download/"
+            rel="noopener"
             target="_blank"
             className="mt-8 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-truffle text-white px-5 py-3 text-base font-medium  sm:w-auto"
           >
             😟 Metamask Not Found!
           </Link>
       )}
-      
+      <div>Hosted on <a href="https://vercel.com/" rel="noopener" target="_blank" className="underline font-bold">Vercel</a></div>
     </div>
 
   );
