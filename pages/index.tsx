@@ -1,38 +1,35 @@
-import type { NextPage } from "next";
-import { useEffect } from "react";
-import Wallet from "../components/Wallet";
-import { useListen } from "../hooks/listen";
-import { useMetamask } from "../hooks/metamask";
+import type { NextPage } from 'next';
+import React, { useEffect } from 'react';
+import Wallet from '../components/Wallet';
+import { useListen } from '../hooks/listen';
+import { useMetamask } from '../hooks/metamask';
 
 const Home: NextPage = () => {
   const { dispatch } = useMetamask();
   const listen = useListen();
 
   useEffect(() => {
-    if (typeof window !== undefined) {
-      const ethereumProviderInjected = typeof window.ethereum !== "undefined";
-
-      const isMetamaskInstalled =
-        ethereumProviderInjected && Boolean(window.ethereum.isMetaMask);
+    if (typeof window !== 'undefined') {
+      const isEthereumProviderInjected = typeof window.ethereum !== 'undefined';
+      const isMetamaskInstalled = isEthereumProviderInjected && Boolean(window.ethereum.isMetaMask);
       
-      const local = window.localStorage.getItem("metamaskState");
-      if (local) {
+      const localState = window.localStorage.getItem('metamaskState');
+      if (localState) {
         listen();
       }
 
-      const { wallet, balance } = local
-        ? JSON.parse(local)
-        : 
-          { wallet: null, balance: null };
+      const { wallet, balance } = localState
+        ? JSON.parse(localState)
+        : { wallet: null, balance: null };
 
-      dispatch({ type: "pageLoaded", isMetamaskInstalled, wallet, balance });
+      dispatch({ type: 'pageLoaded', isMetamaskInstalled, wallet, balance });
     }
   }, []);
 
   return (
-    <>
+    <div>
       <Wallet />
-    </>
+    </div>
   );
 };
 

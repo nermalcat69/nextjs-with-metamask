@@ -1,13 +1,16 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+// Import necessary types from Next.js
+import type { NextApiRequest, NextApiResponse } from 'next';
 
+// Define the expected response data structure
 type Data = {
-  name: string
-}
+  name: string;
+};
 
+// Define the API route handler
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ name: 'Arjun Aditya' })
+  // Respond with a JSON object containing a name
+  res.status(200).json({ name: 'Arjun Aditya' });
 }

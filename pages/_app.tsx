@@ -1,8 +1,10 @@
-import "../src/styles/globals.css";
+// Import global styles
+import '../src/styles/globals.css';
 
-import type { AppProps } from "next/app";
-import { MetamaskProvider } from "../hooks/metamask";
+import type { AppProps } from 'next/app';
+import { MetamaskProvider } from '../hooks/metamask';
 
+// Define the main application component
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <MetamaskProvider>
@@ -11,4 +13,5 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
+// Export the main application component
 export default MyApp;

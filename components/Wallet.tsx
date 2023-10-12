@@ -3,6 +3,9 @@ import { useListen } from "../hooks/listen";
 import { useMetamask } from "../hooks/metamask";
 import { Loading } from "./Loading";
 
+
+
+// Notification component
 const Notification: React.FC = () => {
   return (
     <div className="notification bg-truffle ">
@@ -17,6 +20,7 @@ const Notification: React.FC = () => {
 };
 
 
+// Wallet component
 export default function Wallet() {
   const {
     dispatch,
@@ -44,7 +48,6 @@ export default function Wallet() {
       });
       dispatch({ type: "connect", wallet: accounts[0], balance });
 
-      // we can register an event listener for changes to the users wallet
       listen();
     }
   };
@@ -166,3 +169,6 @@ export default function Wallet() {
 
   );
 }
+
+
+// Nermalcat69

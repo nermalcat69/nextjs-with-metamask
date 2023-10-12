@@ -1,5 +1,6 @@
-import React, { type PropsWithChildren } from "react";
+import React, { createContext, useContext, PropsWithChildren, useReducer } from 'react';
 
+// Define action types
 type ConnectAction = { type: "connect"; wallet: string; balance: string };
 type DisconnectAction = { type: "disconnect" };
 type PageLoadedAction = {
@@ -11,6 +12,7 @@ type PageLoadedAction = {
 type LoadingAction = { type: "loading" };
 type IdleAction = { type: "idle" };
 
+// Combine action types into one
 type Action =
   | ConnectAction
   | DisconnectAction
@@ -18,8 +20,7 @@ type Action =
   | LoadingAction
   | IdleAction;
 
-type Dispatch = (action: Action) => void;
-
+// Define the state structure
 type Status = "loading" | "idle" | "pageNotLoaded";
 
 type State = {
@@ -29,18 +30,20 @@ type State = {
   balance: string | null;
 };
 
+// Define initial state
 const initialState: State = {
   wallet: null,
   isMetamaskInstalled: false,
   status: "loading",
   balance: null,
-} as const;
+};
 
+// Create a reducer for managing Metamask-related state
 function metamaskReducer(state: State, action: Action): State {
   switch (action.type) {
     case "connect": {
       const { wallet, balance } = action;
-      const newState = { ...state, wallet, balance, status: "idle" } as State;
+      const newState = { ...state, wallet, balance, status: "idle" };
       const info = JSON.stringify(newState);
       window.localStorage.setItem("metamaskState", info);
 
@@ -48,7 +51,7 @@ function metamaskReducer(state: State, action: Action): State {
     }
     case "disconnect": {
       window.localStorage.removeItem("metamaskState");
-      if (typeof window.ethereum !== undefined) {
+      if (typeof window.ethereum !== 'undefined') {
         window.ethereum.removeAllListeners(["accountsChanged"]);
       }
       return { ...state, wallet: null, balance: null };
@@ -63,19 +66,18 @@ function metamaskReducer(state: State, action: Action): State {
     case "idle": {
       return { ...state, status: "idle" };
     }
-
     default: {
       throw new Error("Unhandled action type");
     }
   }
 }
 
-const MetamaskContext = React.createContext<
-  { state: State; dispatch: Dispatch } | undefined
->(undefined);
+// Create a context for Metamask state and dispatch
+const MetamaskContext = createContext<{ state: State; dispatch: Dispatch } | undefined>(undefined);
 
+// MetamaskProvider component to wrap your app with Metamask context
 function MetamaskProvider({ children }: PropsWithChildren) {
-  const [state, dispatch] = React.useReducer(metamaskReducer, initialState);
+  const [state, dispatch] = useReducer(metamaskReducer, initialState);
   const value = { state, dispatch };
 
   return (
@@ -85,8 +87,9 @@ function MetamaskProvider({ children }: PropsWithChildren) {
   );
 }
 
+// Custom hook to access the Metamask context
 function useMetamask() {
-  const context = React.useContext(MetamaskContext);
+  const context = useContext(MetamaskContext);
   if (context === undefined) {
     throw new Error("useMetamask must be used within a MetamaskProvider");
   }
