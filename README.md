@@ -8,9 +8,6 @@ This starter template is integrated with metamask with nextjs(tailwind for style
 
 
 -----------------------------------
-<p align="center">
-    <img width="400" height="auto" src="https://cloud-cv2z9cqmo-hack-club-bot.vercel.app/0macbook_pro_16__-_2.svg" />
-</p>
 
 ### Preview
 <p align="center">
