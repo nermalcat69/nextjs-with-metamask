@@ -4,23 +4,12 @@
 </p>
 This starter template is integrated with metamask with nextjs(tailwind for styles), enabling users to interact with Ethereum and decentralized applications (dApps).
 
-
-
-
 -----------------------------------
 
 ### Preview
 <p align="center">
 <img width="800" height="auto" src="https://cloud-g07726cmo-hack-club-bot.vercel.app/0screenshot_2023-10-12_at_4.52.23_am.webp" />
 </p>
-
-
-
-<p align="center">
-<img width="800" height="auto" src="https://cloud-mwcn00fhq-hack-club-bot.vercel.app/0macbook_pro_16__-_1.png" />
-</p>
-
-
 
 ### Prerequisites
 
