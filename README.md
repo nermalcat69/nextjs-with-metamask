@@ -1,4 +1,7 @@
 ## 🚀 NextJs Starter With 🦊 Metamask 
+
+![Frame 12-2](https://github.com/nermalcat69/nextjs-with-metamask/assets/73933669/8500832f-fa1b-446c-9944-f2f194e369d3)
+
 <p align="center">
     <img width="400" height="auto" src="https://cloud-9cgxfsoty-hack-club-bot.vercel.app/0frame_2-2.svg" />
 </p>
